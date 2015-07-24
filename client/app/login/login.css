@@ -1,0 +1,31 @@
+/* Login and Register form */
+
+.admin-form{
+	max-width: 500px;
+	margin: 50px auto;
+}
+
+.admin-form form{
+	padding: 10px 0px;
+}
+
+/* Widget-Content */
+
+.widget-content .error .form-inline button{
+	margin-left:-2px;
+	padding:8px 12px;
+}
+
+.widget-foot .form-inline button {
+	margin-left: -3px;
+	padding:7px 12px;
+}
+
+.widget-content .form-inline button {
+	margin-left: 0px;
+	padding:7px 12px;
+}
+
+.buttons button{
+	margin-top:10px;
+}

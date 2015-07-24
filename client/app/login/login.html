@@ -1,0 +1,97 @@
+<div class="admin-form">
+    <div class="container">
+        <div class="row">
+
+            <div style="width: 530px; height:50px;">
+                <div ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"
+                     class="alert ng-isolate-scope alert-danger"
+                     ng-class="&quot;alert-&quot; + (type || &quot;warning&quot;)">
+                    <button type="button" class="close" ng-click="closeAlert($index)">×</button>
+                    <div><span class="ng-scope ng-binding">{{alert.msg}}</span></div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+
+                <div class="widget worange" style="width:500px;">
+                    <!-- Widget head -->
+                    <div class="widget-head">
+
+                    </div>
+
+                    <div class="widget-content">
+                        <div class="padd">
+                            <!-- Login form -->
+                            <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate
+                                  class="form-horizontal">
+                                <!-- Email -->
+                                <div class="form-group"
+                                     ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                                    <label class="control-label col-lg-3" for="email" translate="Email">Email</label>
+
+                                    <div class="col-lg-9">
+                                        <div>
+                                            <input type="email" name="email" id="email" class="form-control"
+                                                   ng-model="entity.email" placeholder="Email" required>
+                                        </div>
+                                        <div>
+                                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine"
+                                               class="help-block">Enter a valid email.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="form-group"
+                                     ng-class="{ 'has-error' : userForm.password.$invalid && (!userForm.password.$pristine)}">
+                                    <label class="control-label col-lg-3" for="password"
+                                           translate="Password">Password</label>
+
+                                    <div class="col-lg-9">
+                                        <div>
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                   placeholder="Password" ng-model="entity.password" ng-minlength="4"
+                                                   ng-maxlength="20" required>
+                                        </div>
+                                        <div>
+                                            <p ng-show="userForm.password.$error.minlength" class="help-block"
+                                               translate="shortPassword">Password is too short.</p>
+
+                                            <p ng-show="userForm.password.$error.maxlength" class="help-block"
+                                               translate="longPassword">Password is too long.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{userForm.password.$error.pattern}}
+                                <!-- Remember me checkbox and sign in button -->
+                                <div class="form-group">
+                                    <div class="col-lg-9 col-lg-offset-3">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="remember-me" ng-model="entity.rememberme"
+                                                       value="remember-me" translate="RememberMe">Remember me
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-9 col-lg-offset-2">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid"
+                                            translate="SignIn">Sign In
+                                    </button>
+                                    <button type="reset" class="btn btn-default" translate="Reset">Reset</button>
+                                </div>
+                                <br/>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="widget-foot">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
